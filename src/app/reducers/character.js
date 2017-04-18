@@ -1,12 +1,12 @@
 import * as types from '../actions/character-action-types';
 const initial_state = {
   abilities : {
-    strength : { label:{fr:'FOR'},rank:0,bonus:0,actual:0,modifier:0},
-    constition : { label:{fr:'CON'},rank:0,bonus:0,actual:0,modifier:0},
-    wisdom : { label:{fr:'SAG'},rank:0,bonus:0,actual:0,modifier:0},
-    intelligence : { label:{fr:'INT'},rank:0,bonus:0,actual:0,modifier:0},
-    dexterity : { label:{fr:'DEX'},rank:0,bonus:0,actual:0,modifier:0},
-    charisma : { label:{fr:'CHA'},rank:0,bonus:0,actual:0,modifier:0}
+    strength : { label:{fr:'FOR'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
+    constitution : { label:{fr:'CON'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
+    wisdom : { label:{fr:'SAG'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
+    intelligence : { label:{fr:'INT'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
+    dexterity : { label:{fr:'DEX'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
+    charisma : { label:{fr:'CHA'},rank:0,bonus:0,actual:0,modifier:0,effects:[]}
   },
   skills: {
     appraise:{ label: {fr:"Estimation"}, rank : 0, actual: 0, ability:"intelligence" },
@@ -68,8 +68,8 @@ export default function character(state = initial_state, action = {}) {
       return new_state;
     case types.CHANGE_SKILL_RANK:
       var new_state = {...state};
-   new_state.skills[action.name].rank = parseInt(action.rank, 10);
-   new_state.skills[action.name].actual = new_state.skills[action.name].rank + new_state.abilities[new_state.skills[action.name].ability].modifier;
+      new_state.skills[action.name].rank = parseInt(action.rank, 10);
+      new_state.skills[action.name].actual = new_state.skills[action.name].rank + new_state.abilities[new_state.skills[action.name].ability].modifier;
       return new_state;
     case types.RESET_CHARACTER:
     default:

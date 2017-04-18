@@ -11,7 +11,7 @@ export default class SkillView extends Component {
     const { label, rank, actual, changeRank } = this.props;
     return (
       <tr>
-        <td>{label}</td>
+        <td className=".label">{label}</td>
         <td><input
               type="number"
               value={rank}

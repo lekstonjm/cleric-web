@@ -25,25 +25,26 @@ class Cleric extends Component {
       );
     });
   }
-  renderSkills(skills) {
+  renderSkills(skills, changeSkillRank) {
     return Object.keys(skills).map( (skill) => {
       return (
         <SkillView key={skill}
           label={skills[skill].label[language]}
           rank={skills[skill].rank}
-          actual={skills[skill].actual}/>
+          actual={skills[skill].actual}
+          changeRank={ (new_rank) => changeSkillRank(skill, new_rank) }/>
       );
     });
   }
   render() {
-    const { character, resetCharacter, changeAbilityRank } = this.props;
+    const { character, resetCharacter, changeAbilityRank, changeSkillRank } = this.props;
     return (
       <div className="row">
         <AbilitiesView>
-          { this.renderAbilities(character.abilities,changeAbilityRank) }
+          { this.renderAbilities(character.abilities, changeAbilityRank) }
         </AbilitiesView>
         <SkillsView>
-        { this.renderSkills(character.skills) }
+          { this.renderSkills(character.skills, changeSkillRank) }
         </SkillsView>
       </div>
     );

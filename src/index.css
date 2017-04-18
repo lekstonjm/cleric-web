@@ -1,6 +1,8 @@
 * {
   font-family: sans-serif;
   font-size: 11pt;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -10,23 +12,14 @@ body {
   font-size: 11pt;
 }
 
-td {
-  width:3em;
-  height: 3em;
-  text-align: center;
-  vertical-align:middle;
-  border-style: solid;
-  border-width:thin;
-  margin:3px;
-}
 input[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
   margin: 0;
   background-color: white;
   border-style: none;
-  width:3em;
   text-align: center;
+  width: 1em;
 }
 
 .row {
@@ -35,4 +28,30 @@ input[type=number] {
 
 .block {
   display: inline-block;
+}
+
+.abilities td {
+  font-size: 13pt;
+  width: 4em;
+  height: 2em;
+  text-align: center;
+  vertical-align:middle;
+  border-style: solid;
+  border-width:thin;
+}
+
+.abilities td * {
+  font-size: 13pt;
+}
+
+.skills td {
+  font-size: 9pt;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: center;
+  vertical-align:middle;
+}
+
+.skills td * {
+  font-size: 9pt;
 }
