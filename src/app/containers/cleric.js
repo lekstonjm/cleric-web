@@ -43,7 +43,7 @@ class Cleric extends Component {
           { this.renderAbilities(character.abilities,changeAbilityRank) }
         </AbilitiesView>
         <SkillsView>
-        { this.renderAbilities(character.skills) }
+        { this.renderSkills(character.skills) }
         </SkillsView>
       </div>
     );
@@ -55,6 +55,7 @@ export default connect(state => ({
   }),
   (dispatch) => ({
     resetCharacter : () => dispatch(actions.resetCharacter()),
-    changeAbilityRank : (ability_name, new_rank) => dispatch(actions.changeAbilityRank(ability_name, new_rank))
+    changeAbilityRank : (ability_name, new_rank) => dispatch(actions.changeAbilityRank(ability_name, new_rank)),
+    changeSkillRank : (skill_name, new_rank) => dispatch(actions.changeSkillRank(skill_name, new_rank))
   })
 )(Cleric);

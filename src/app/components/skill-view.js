@@ -8,11 +8,17 @@ export default class SkillView extends Component {
   }
 
   render() {
-    const { name, label, rank, actual } = this.props;
+    const { label, rank, actual, changeRank } = this.props;
     return (
       <tr>
         <td>{label}</td>
-        <td>{rank}</td>
+        <td><input
+              type="number"
+              value={rank}
+              ref={ (input) => { this.refInput = input; } }
+              onClick={ () => { this.refInput.select();} }
+              onChange={ (event) => {  changeRank(event.target.value); } }/>
+        </td>
         <td>{actual}</td>
       </tr>
     );

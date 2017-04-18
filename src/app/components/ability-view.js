@@ -8,7 +8,7 @@ export default class AbilityView extends Component {
   }
 
   render() {
-    const { name, label, rank, actual, modifier, changeRank } = this.props;
+    const { label, rank, actual, modifier, changeRank } = this.props;
     return (
       <tr>
         <td>{label}</td>
