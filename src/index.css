@@ -22,6 +22,10 @@ input[type=number] {
   width: 4em;
 }
 
+label {
+    display: block;
+}
+
 .row {
   width:100%;
 }

@@ -29,16 +29,16 @@ class Cleric extends Component {
   renderSkills(skills, changeSkillRank) {
     return Object.keys(skills).map( (skill) => {
       return (
-        <SkillView key={skill}
+        <SkillView key={skills[skill].id}
           label={skills[skill].label[language]}
           rank={skills[skill].rank}
           actual={skills[skill].actual}
-          changeRank={ (new_rank) => changeSkillRank(skill, new_rank) }/>
+          changeRank={ (new_rank) => changeSkillRank(skills[skill].id, new_rank) }/>
       );
     });
   }
   render() {
-    const { character, resetCharacter, changeAbilityRank, changeSkillRank } = this.props;
+    const { character, resetCharacter, changeAbilityRank, changeSkillRank, newSkill } = this.props;
     return (
       <div className="row">
         <AbilitiesView>
@@ -47,7 +47,7 @@ class Cleric extends Component {
         <SkillsView>
           { this.renderSkills(character.skills, changeSkillRank) }
         </SkillsView>
-        <NewSkillView/>
+        <NewSkillView onNew={newSkill}/>
       </div>
     );
   }
@@ -59,6 +59,7 @@ export default connect(state => ({
   (dispatch) => ({
     resetCharacter : () => dispatch(actions.resetCharacter()),
     changeAbilityRank : (ability_name, new_rank) => dispatch(actions.changeAbilityRank(ability_name, new_rank)),
-    changeSkillRank : (skill_name, new_rank) => dispatch(actions.changeSkillRank(skill_name, new_rank))
+    changeSkillRank : (skill_name, new_rank) => dispatch(actions.changeSkillRank(skill_name, new_rank)),
+    newSkill: (skill_name, label, ability) => dispatch(actions.newSkill(skill_name, label, ability))
   })
 )(Cleric);

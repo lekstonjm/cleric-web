@@ -10,17 +10,17 @@ export default class NewSkillView extends Component {
   }
 
   render() {
-    const { newSkillSubmit } = this.props;
+    const { onNew } = this.props;
     return (
       <form onSubmit={  (e) => {
           e.preventDefault();
-          newSkillSubmit(this.name_input.value,
+          onNew(this.name_input.value,
             this.label_input.value,
             this.ability_input.value);
       }}>
-        <label>id<input ref={ (input) => {this.name_input = input} } id="name" type="text" value=""/></label>
-        <label>label<input ref={ (input) => {this.label_input = input} } id="label" type="text" value=""/></label>
-        <label>ability<input ref={ (input) => {this.ability_input = input} } type="text" value=""/></label>
+        <label>id<input ref={ (input) => {this.name_input = input} } type="text"/></label>
+        <label>label<input ref={ (input) => {this.label_input = input} } type="text"/></label>
+        <label>ability<input ref={ (input) => {this.ability_input = input} } type="text"/></label>
         <button type="submit">Add</button>
       </form>
     );
