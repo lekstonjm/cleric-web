@@ -71,6 +71,8 @@ export default function character(state = initial_state, action = {}) {
       new_state.skills[action.name].rank = parseInt(action.rank, 10);
       new_state.skills[action.name].actual = new_state.skills[action.name].rank + new_state.abilities[new_state.skills[action.name].ability].modifier;
       return new_state;
+    case types.NEW_SKILL:
+      return state;
     case types.RESET_CHARACTER:
     default:
       return initial_state;

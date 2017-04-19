@@ -6,6 +6,7 @@ import AbilityView from '../components/ability-view'
 import AbilitiesView from '../components/abilities-view'
 import SkillView from '../components/skill-view'
 import SkillsView from '../components/skills-view'
+import NewSkillView from '../components/new-skill-view'
 // @connect(state => ({
 //   state: state.counter
 // }))
@@ -46,6 +47,7 @@ class Cleric extends Component {
         <SkillsView>
           { this.renderSkills(character.skills, changeSkillRank) }
         </SkillsView>
+        <NewSkillView/>
       </div>
     );
   }

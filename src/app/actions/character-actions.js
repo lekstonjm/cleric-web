@@ -21,3 +21,12 @@ export function changeSkillRank(skill_name, new_rank) {
     rank: new_rank
   }
 }
+
+export function newSkill(skill_name, label, ability) {
+  return {
+    type: types.NEW_SKILL,
+    name : skill_name,
+    label: label,
+    ability: ability
+  }
+}
