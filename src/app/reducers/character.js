@@ -1,53 +1,7 @@
 import * as types from '../actions/character-action-types';
-const initial_state = {
-  abilities : {
-    strength : { label:{fr:'FOR'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
-    constitution : { label:{fr:'CON'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
-    wisdom : { label:{fr:'SAG'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
-    intelligence : { label:{fr:'INT'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
-    dexterity : { label:{fr:'DEX'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
-    charisma : { label:{fr:'CHA'},rank:0,bonus:0,actual:0,modifier:0,effects:[]}
-  },
-  skills: [
-    {id:"appraise",  label: {fr:"Estimation"}, rank : 0, actual: 0, ability:"intelligence" },
-    {id:"balance",  label: {fr:"Acrobatie"}, rank : 0, actual: 0, ability:"dexterity" },
-    {id:"climb",  label: {fr:"Escalade"}, rank : 0, actual: 0, ability:"strength" },
-    {id:"concentration",  label: {fr:"Concentration"}, rank : 0, actual: 0, ability:"constitution" },
-    {id:"craft",  label: {fr:"Artisanat"}, rank : 0, actual: 0, ability:"intelligence" },
-    {id:"decipher_script",  label: {fr:"Langage secret"}, rank : 0, actual: 0, ability:"intelligence" },
-    {id:"diplomacy",  label: {fr:"Diplomatie"}, rank : 0, actual: 0, ability:"charisma" },
-    {id:"disable_device",  label: {fr:"Désamorçage/sabotage"}, rank : 0, actual: 0, ability:"intelligence" },
-    {id:"disguise",  label: {fr:"Déguisement"}, rank : 0, actual: 0, ability:"charisma" },
-    {id:"escape_artist",  label: {fr:"Evasion"}, rank : 0, actual: 0, ability:"dexterity" },
-    {id:"forgery",  label: {fr:"Artisanat"}, rank : 0, actual: 0, ability:"intelligence" },
-    {id:"gather_information", label: {fr:"Renseignements"},  rank : 0, actual: 0, ability:"charisma" },
-    {id:"handle_animal", label: {fr:"Dressage"}, rank : 0, actual: 0, ability:"charisma" },
-    {id:"heal",  label: {fr:"Premiers secours"}, rank : 0, actual: 0, ability:"wisdom" },
-    {id:"hide",  label: {fr:"Discrétion"}, rank : 0, actual: 0, ability:"dexterity" },
-    {id:"intimidate",  label: {fr:"Intimidation"}, rank : 0, actual: 0, ability:"charisma" },
-    {id:"jump",  label: {fr:"Saut"}, rank : 0, actual: 0, ability:"strength" },
-    {id:"knowledge_sorcery", label: {fr:"Connaissance des sorts"}, rank : 0, actual: 0, ability:"intelligence" },
-    {id:"knowledge_mystery", label: {fr:"Connaissance des mystères"}, rank : 0, actual: 0, ability:"intelligence" },
-    {id:"knowledge_religion", label: {fr:"Connaissance des religions"}, rank : 0, actual: 0, ability:"intelligence" },
-    {id:"listen", label: {fr:"Perception auditive"}, rank : 0, actual: 0, ability:"wisdom" },
-    {id:"move_silently",  label: {fr:"Déplacement silencieux"},rank : 0, actual: 0, ability:"dexterity" },
-    {id:"open_lock",  label: {fr:"Crochetage"}, rank : 0, actual: 0, ability:"dexterity" },
-    {id:"orientation",  label: {fr:"Sens de l'orientation"}, rank : 0, actual: 0, ability:"dexterity" },
-    {id:"perform",  label: {fr:"Représentation"}, rank : 0, actual: 0, ability:"charisma" },
-    {id:"profession",  label: {fr:"Profession"}, rank : 0, actual: 0, ability:"wisdom" },
-    {id:"ride",  label: {fr:"Equitation"}, rank : 0, actual: 0, ability:"dexterity" },
-    {id:"search",  label: {fr:"Représentation"}, rank : 0, actual: 0, ability:"intelligence" },
-    {id:"sense_motive",  label: {fr:"Psychologie"}, rank : 0, actual: 0, ability:"wisdom" },
-    {id:"sleight_of_hand", label: {fr:"Vol à la tire"}, rank : 0, actual: 0, ability:"dexterity" },
-    {id:"spellcraft", label: {fr:"Alchimie"}, rank : 0, actual: 0, ability:"intelligence" },
-    {id:"spot",  label: {fr:"Detection"}, rank : 0, actual: 0, ability:"wisdom" },
-    {id:"survival",  label: {fr:"Sens de la nature"}, rank : 0, actual: 0, ability:"wisdom" },
-    {id:"swim",  label: {fr:"Natation"}, rank : 0, actual: 0, ability:"strength" },
-    {id:"tumble",  label: {fr:"Equilibre"}, rank : 0, actual: 0, ability:"dexterity" },
-    {id:"use_rope", label: {fr:"Maitrise des cordes"}, rank : 0, actual: 0, ability:"dexterity" } ]
-};
+import {initialState} from './character-initial-state';
 
-export default function character(state = initial_state, action = {}) {
+export default function character(state = null, action = {}) {
   var new_state = {...state};
   switch (action.type) {
     case types.CHANGE_ABILITY_RANK:
@@ -76,6 +30,6 @@ export default function character(state = initial_state, action = {}) {
       return new_state;
     case types.RESET_CHARACTER:
     default:
-      return initial_state;
+      return initialState;
   }
 }

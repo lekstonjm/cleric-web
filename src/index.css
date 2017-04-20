@@ -32,6 +32,7 @@ label {
 
 .block {
   display: inline-block;
+  vertical-align:top;
 }
 
 .abilities td {

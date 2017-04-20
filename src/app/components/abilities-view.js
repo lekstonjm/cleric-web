@@ -7,7 +7,7 @@ export default class AbilitiesView extends Component {
   render() {
     const {children} = this.props;
     return (
-      <div className="block abilities">
+      <div className="abilities">
         <h1>Abilities</h1>
         <table>
               <thead>

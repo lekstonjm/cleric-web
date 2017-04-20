@@ -27,6 +27,16 @@ class Cleric extends Component {
     });
   }
   renderSkills(skills, changeSkillRank) {
+    var sort_fn = (skill_1, skill_2) => {
+      if (skill_1.label[language] < skill_2.label[language]) {
+        return -1;
+      } else if (skill_1.label[language] > skill_2.label[language]) {
+        return 1;
+      } else {
+        return 0;
+      }
+    };
+    skills.sort(sort_fn);
     return Object.keys(skills).map( (skill) => {
       return (
         <SkillView key={skills[skill].id}
@@ -41,13 +51,17 @@ class Cleric extends Component {
     const { character, resetCharacter, changeAbilityRank, changeSkillRank, newSkill } = this.props;
     return (
       <div className="row">
-        <AbilitiesView>
-          { this.renderAbilities(character.abilities, changeAbilityRank) }
-        </AbilitiesView>
-        <SkillsView>
-          { this.renderSkills(character.skills, changeSkillRank) }
-        </SkillsView>
-        <NewSkillView onNew={newSkill}/>
+        <div className="block">
+          <AbilitiesView>
+            { this.renderAbilities(character.abilities, changeAbilityRank) }
+          </AbilitiesView>
+        </div>
+        <div className="block">
+          <SkillsView>
+            { this.renderSkills(character.skills, changeSkillRank) }
+          </SkillsView>
+          <NewSkillView onNew={newSkill}/>
+        </div>
       </div>
     );
   }
