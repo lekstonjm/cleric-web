@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
-import * as actions from '../actions/character-actions';
 import { connect } from 'react-redux';
+import {Grid, Row, Col, Jumbotron, PageHeader, Button} from 'react-bootstrap';
+
 import {language} from '../i18n/language';
+import * as actions from '../actions';
 import AbilityView from '../components/ability-view'
 import AbilitiesView from '../components/abilities-view'
 import SkillView from '../components/skill-view'
 import SkillsView from '../components/skills-view'
-import NewSkillView from '../components/new-skill-view'
+//import NewSkillForm from '../components/new-skill-form'
+import NewSkillForm from '../containers/new-skill-form'
+import EffectsForm from '../containers/effects-form'
 // @connect(state => ({
 //   state: state.counter
 // }))
@@ -14,15 +18,15 @@ class Cleric extends Component {
   constructor(props) {
     super(props);
   }
-  renderAbilities(abilities, changeAbilityRank) {
+
+  renderAbilities(abilities, changeAbilityRank, showEffects) {
     return Object.keys(abilities).map( (ability) => {
       return (
         <AbilityView key={ability}
-          label={abilities[ability].label[language]}
-          rank={abilities[ability].rank}
-          actual={abilities[ability].actual}
-          modifier={abilities[ability].modifier}
-          changeRank={ (new_rank) => changeAbilityRank(ability, new_rank) }/>
+          ability={abilities[ability]}
+          changeRank={ (new_rank) => changeAbilityRank(ability, new_rank) }
+          showEffects={ () => showEffects(ability) }
+          />
       );
     });
   }
@@ -39,30 +43,33 @@ class Cleric extends Component {
     skills.sort(sort_fn);
     return Object.keys(skills).map( (skill) => {
       return (
-        <SkillView key={skills[skill].id}
-          label={skills[skill].label[language]}
-          rank={skills[skill].rank}
-          actual={skills[skill].actual}
+        <SkillView key={skills[skill].id} skill={skills[skill]}
           changeRank={ (new_rank) => changeSkillRank(skills[skill].id, new_rank) }/>
       );
     });
   }
   render() {
-    const { character, resetCharacter, changeAbilityRank, changeSkillRank, newSkill } = this.props;
+    const { character, resetCharacter, changeAbilityRank, changeSkillRank, showNewSkillForm, showEffectsForm  } = this.props;
     return (
-      <div className="row">
-        <div className="block">
-          <AbilitiesView>
-            { this.renderAbilities(character.abilities, changeAbilityRank) }
-          </AbilitiesView>
-        </div>
-        <div className="block">
-          <SkillsView>
-            { this.renderSkills(character.skills, changeSkillRank) }
-          </SkillsView>
-          <NewSkillView onNew={newSkill}/>
-        </div>
-      </div>
+      <Grid>
+        <Row>
+          <PageHeader className="title">Cleric</PageHeader>
+        </Row>
+        <Row>
+          <Col lg={6}>
+            <AbilitiesView>
+              { this.renderAbilities(character.abilities, changeAbilityRank, showEffectsForm) }
+            </AbilitiesView>
+          </Col>
+          <Col lg={6}>
+            <SkillsView showNewSkillForm={showNewSkillForm}>
+              { this.renderSkills(character.skills, changeSkillRank) }
+            </SkillsView>
+          </Col>
+        </Row>
+        <NewSkillForm/>
+        <EffectsForm/>
+      </Grid>
     );
   }
 }
@@ -71,9 +78,10 @@ export default connect(state => ({
     character : state.character
   }),
   (dispatch) => ({
-    resetCharacter : () => dispatch(actions.resetCharacter()),
-    changeAbilityRank : (ability_name, new_rank) => dispatch(actions.changeAbilityRank(ability_name, new_rank)),
-    changeSkillRank : (skill_name, new_rank) => dispatch(actions.changeSkillRank(skill_name, new_rank)),
-    newSkill: (skill_name, label, ability) => dispatch(actions.newSkill(skill_name, label, ability))
+    resetCharacter : () => dispatch(actions.character.resetCharacter()),
+    changeAbilityRank : (ability_name, new_rank) => dispatch(actions.character.changeAbilityRank(ability_name, new_rank)),
+    changeSkillRank : (skill_name, new_rank) => dispatch(actions.character.changeSkillRank(skill_name, new_rank)),
+    showNewSkillForm: () => dispatch(actions.hmi.showNewSkillForm()),
+    showEffectsForm: (ability_name) => dispatch(actions.hmi.showEffectsForm(ability_name))
   })
 )(Cleric);

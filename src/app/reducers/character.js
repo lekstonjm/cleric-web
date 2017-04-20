@@ -19,14 +19,15 @@ export default function character(state = null, action = {}) {
       }
       return new_state;
     case types.CHANGE_SKILL_RANK:
-      var index = new_state.skills.findIndex((element)=>{ return element.id === action.name});
-      console.log(action.name+' '+index);
+      var index = new_state.skills.findIndex((element)=>{ return element.id === action.id});
       new_state.skills[index].rank = parseInt(action.rank, 10);
       var ability = new_state.skills[index].ability;
       new_state.skills[index].actual = new_state.skills[index].rank + new_state.abilities[ability].modifier;
       return new_state;
     case types.NEW_SKILL:
-      new_state.skills.push({id:action.name, label:{fr:action.label}, rank:0, actual:0, ability:action.ability});
+      var max_id = 0;
+      for (skill in new_state.skills) { if (new_state.skills[skill].id > max_id) { max_id = new_state.skills[skill].id; } }
+      new_state.skills.push({id:max_id+1, label:{fr:action.label}, rank:0, actual:0, ability:action.ability});
       return new_state;
     case types.RESET_CHARACTER:
     default:
