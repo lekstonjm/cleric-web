@@ -21,7 +21,7 @@ export default class AbilitiesForm extends Component {
   render() {
     const {abilities, onAbilityRankChange, onShowAbilityEffects} = this.props;
     return (
-      <div className="abilities">
+      <div>
         <h1>Abilities</h1>
         <table>
               <thead>

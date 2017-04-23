@@ -10,9 +10,9 @@ class AbilitiesView extends Component {
   }
 
   render() {
-    const { abilities, changeAbilityRank, showEffectsForm } = this.props;
+    const { character, changeAbilityRank, showEffectsForm } = this.props;
     return (
-      <AbilitiesForm abilities={abilities}
+      <AbilitiesForm abilities={character.abilities}
         onAbilityRankChange={ (ability_name, new_rank) => changeAbilityRank(ability_name, new_rank) }
         onShowAbilityEffects={ (ability_name) => showEffectsForm(ability_name) } />
     );
@@ -20,7 +20,7 @@ class AbilitiesView extends Component {
 }
 
 export default connect(state => ({
-    abilities : state.character.abilities
+    character : state.character
   }),
   (dispatch) => ({
     changeAbilityRank : (ability_name, new_rank) => dispatch(actions.character.changeAbilityRank(ability_name, new_rank)),

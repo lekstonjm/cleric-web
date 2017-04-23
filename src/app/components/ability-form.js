@@ -21,10 +21,7 @@ export default class AbilityForm extends Component {
               value={ability.rank}
               ref={ (input) => { this.refInput = input; } }
               onClick={ () => { this.refInput.select();} }
-              onChange={ (event) => {
-                console.log('coucou');
-                //onRankChange(event.target.value); 
-              } }/>
+              onChange={ () => { onRankChange(this.refInput.value); } }/>
         </td>
         <td>{ability.actual}</td>
         <td>{ability.modifier}</td>
