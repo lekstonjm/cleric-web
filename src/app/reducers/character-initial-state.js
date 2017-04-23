@@ -7,6 +7,25 @@ export const initialState = {
     dexterity : { label:{fr:'DEX'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
     charisma : { label:{fr:'CHA'},rank:0,bonus:0,actual:0,modifier:0,effects:[]}
   },
+  saving_throws : {
+      fortitude: { base : 0 },
+      reflex: { base : 0 },
+      will: { base : 0 }
+  },
+  hit_points : {
+    rank:0,
+    actual:0
+  },
+  armor_class : {
+    actual : 0,
+    touch : 0,
+    flat_footed : 0
+  },
+  initiative : 0,
+  attack: {
+    base : 0,
+    actual : 0
+  },
   skills: [
   {id:1, label: {en:"Appraise", fr:"Estimation"}, rank : 0, actual: 0, ability:"intelligence" },
   {id:2, label: {en:"Balance", fr:"Acrobatie"}, rank : 0, actual: 0, ability:"dexterity" },

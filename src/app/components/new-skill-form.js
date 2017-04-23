@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import {Modal, Button, Form, FormGroup, FormControl, ControlLabel, Col} from 'react-bootstrap';
-import { connect } from 'react-redux';
 
-import * as actions from '../actions';
-import {language} from '../i18n/language';
 
-class NewSkillForm extends Component {
+export default class NewSkillForm extends Component {
   constructor(props) {
     super(props);
     this.label_input = null;
@@ -13,9 +10,9 @@ class NewSkillForm extends Component {
   }
 
   render() {
-    const { hmi, newSkill, hideNewSkillForm } = this.props;
+    const { visible, onOk, onCancel } = this.props;
     return (
-      <Modal show={hmi.new_skill_form_visible} onHide={hideNewSkillForm}>
+      <Modal show={visible} onHide={onCancel}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -42,20 +39,10 @@ class NewSkillForm extends Component {
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={()=>{
-            newSkill(this.label_input.value, this.ability_input.value);
-            hideNewSkillForm();
+            onOk(this.label_input.value, this.ability_input.value);
           }}>Add</Button>
         </Modal.Footer>
       </Modal>
     );
   }
 }
-
-export default connect(state => ({
-    hmi : state.hmi
-  }),
-  (dispatch) => ({
-    newSkill: (label, ability) => dispatch(actions.character.newSkill(label, ability)),
-    hideNewSkillForm: () => dispatch(actions.hmi.hideNewSkillForm()),
-  })
-)(NewSkillForm);

@@ -29,3 +29,20 @@ export function newSkill(label, ability) {
     ability: ability
   }
 }
+
+export function addEffect(ability, description, value) {
+  return {
+    type: types.ADD_EFFECT,
+    ability: ability,
+    description: description,
+    value: value
+  }
+}
+
+export function removeEffect(ability, effect) {
+  return {
+    type: types.REMOVE_EFFECT,
+    ability: ability,
+    effect: effect
+  }
+}

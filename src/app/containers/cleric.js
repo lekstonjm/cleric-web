@@ -4,13 +4,11 @@ import {Grid, Row, Col, Jumbotron, PageHeader, Button} from 'react-bootstrap';
 
 import {language} from '../i18n/language';
 import * as actions from '../actions';
-import AbilityView from '../components/ability-view'
-import AbilitiesView from '../components/abilities-view'
 import SkillView from '../components/skill-view'
 import SkillsView from '../components/skills-view'
-//import NewSkillForm from '../components/new-skill-form'
-import NewSkillForm from '../containers/new-skill-form'
-import EffectsForm from '../containers/effects-form'
+import NewSkillView from '../containers/new-skill-view'
+import EffectsView from '../containers/effects-view'
+import AbilitiesView from '../containers/abilities-view'
 // @connect(state => ({
 //   state: state.counter
 // }))
@@ -19,17 +17,6 @@ class Cleric extends Component {
     super(props);
   }
 
-  renderAbilities(abilities, changeAbilityRank, showEffects) {
-    return Object.keys(abilities).map( (ability) => {
-      return (
-        <AbilityView key={ability}
-          ability={abilities[ability]}
-          changeRank={ (new_rank) => changeAbilityRank(ability, new_rank) }
-          showEffects={ () => showEffects(ability) }
-          />
-      );
-    });
-  }
   renderSkills(skills, changeSkillRank) {
     var sort_fn = (skill_1, skill_2) => {
       if (skill_1.label[language] < skill_2.label[language]) {
@@ -57,9 +44,7 @@ class Cleric extends Component {
         </Row>
         <Row>
           <Col lg={6}>
-            <AbilitiesView>
-              { this.renderAbilities(character.abilities, changeAbilityRank, showEffectsForm) }
-            </AbilitiesView>
+            <AbilitiesView/>
           </Col>
           <Col lg={6}>
             <SkillsView showNewSkillForm={showNewSkillForm}>
@@ -67,8 +52,8 @@ class Cleric extends Component {
             </SkillsView>
           </Col>
         </Row>
-        <NewSkillForm/>
-        <EffectsForm/>
+        <NewSkillView/>
+        <EffectsView/>
       </Grid>
     );
   }
