@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Table} from 'react-bootstrap';
 import AbilityForm from './ability-form';
 
 export default class AbilitiesForm extends Component {
@@ -22,15 +23,15 @@ export default class AbilitiesForm extends Component {
     const {abilities, onAbilityRankChange, onShowAbilityEffects} = this.props;
     return (
       <div>
-        <h1>Abilities</h1>
-        <table>
+        <h2>Abilities</h2>
+        <Table condensed>
               <thead>
-                <tr><td>&nbsp;</td><td>Rk</td><td>Act</td><td>Mod</td></tr>
+                <tr><td></td><td>Rk</td><td>Act</td><td>Mod</td></tr>
               </thead>
               <tbody>
               { this.renderAbilities(abilities, onAbilityRankChange, onShowAbilityEffects) }
               </tbody>
-        </table>
+        </Table>
       </div>
    );
   }

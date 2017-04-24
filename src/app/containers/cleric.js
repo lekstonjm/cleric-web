@@ -19,21 +19,24 @@ class Cleric extends Component {
 
   render() {
     return (
-      <Grid>
-        <Row>
-          <PageHeader className="title">Cleric</PageHeader>
-        </Row>
-        <Row>
-          <Col lg={6}>
-            <AbilitiesView/>
-          </Col>
-          <Col lg={6}>
-            <SkillsView/>
-          </Col>
-        </Row>
-        <NewSkillView/>
-        <EffectsView/>
-      </Grid>
+      <div>
+        <PageHeader>Calculatrice à PJ </PageHeader>
+        <Grid>
+          <Row>
+            <Col lg={4}>
+              <AbilitiesView/>
+            </Col>
+            <Col lg={4}>
+              <SkillsView/>
+            </Col>
+            <Col lg={4}>
+              &nbsp;
+            </Col>
+          </Row>
+          <NewSkillView/>
+          <EffectsView/>
+        </Grid>
+      </div>
     );
   }
 }

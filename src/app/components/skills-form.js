@@ -20,7 +20,7 @@ export default class SkillsForm extends Component {
         return 0;
       }
     };
-    return skills.sort(sort_fn).keys().map( (skill_id) => {
+    return Object.keys(skills.sort(sort_fn)).map( (skill_id) => {
       return (<SkillForm skill={skills[skill_id]} onRankChange={onRankChange}/>);
     });
   }
@@ -29,8 +29,9 @@ export default class SkillsForm extends Component {
     const { skills, onRankChange, onNewSkill } = this.props;
     return (
       <div className="skills">
-        <h1>Skills</h1><Button onClick={onNewSkill}>New skill</Button>
-        <Table>
+        <h2>Skills</h2>
+        <Button onClick={onNewSkill}>+</Button>
+        <Table condensed>
             <thead>
               <tr><td>&nbsp;</td><td>Rk</td><td>Act</td></tr>
             </thead>
