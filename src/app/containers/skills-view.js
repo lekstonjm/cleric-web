@@ -10,18 +10,20 @@ class SkillsView extends Component {
   }
 
   render() {
-    const { skills, changeSkillRank } = this.props;
+    const { character, onRankChange, onNewSkill } = this.props;
     return (
-      <SkillsForm abilities={abilities}
-        onSkillRankChanged={ (ability_id, new_rank) => changeSkillRank(skill_id, new_rank) } />
+      <SkillsForm skills={character.skills}
+        onRankChange={ onRankChange }
+        onNewSkill={ onNewSkill } />
     );
   }
 }
 
 export default connect(state => ({
-    skills : state.character.skills
+    character : state.character
   }),
   (dispatch) => ({
-    changeSkillsRank : (ability_name, new_rank) => dispatch(actions.character.changeAbilityRank(ability_name, new_rank))
+    onRankChange : (skill_id, new_rank) => dispatch(actions.character.changeSkillRank(skill_id, new_rank)),
+    onNewSkill : () => dispatch(actions.hmi.showNewSkillForm())
   })
 )(SkillsView);
