@@ -17,7 +17,7 @@ export default class SkillForm extends Component {
               value={skill.rank}
               ref={ (input) => { this.refInput = input; } }
               onClick={ () => { this.refInput.select();} }
-              onChange={ (event) => {  onRankChange(event.target.value); } }/>
+              onChange={ () => {  onRankChange(this.refInput.value); } }/>
         </td>
         <td>{skill.actual}</td>
       </tr>
