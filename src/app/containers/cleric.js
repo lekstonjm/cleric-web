@@ -27,10 +27,10 @@ class Cleric extends Component {
               <AbilitiesView/>
             </Col>
             <Col lg={4}>
-              <SkillsView/>
+              &nbsp;
             </Col>
             <Col lg={4}>
-              &nbsp;
+              <SkillsView/>
             </Col>
           </Row>
           <NewSkillView/>

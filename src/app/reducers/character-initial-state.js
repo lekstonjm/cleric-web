@@ -1,11 +1,11 @@
 export const initialState = {
   abilities : {
-    strength : { label:{fr:'FOR'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
-    constitution : { label:{fr:'CON'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
-    wisdom : { label:{fr:'SAG'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
-    intelligence : { label:{fr:'INT'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
-    dexterity : { label:{fr:'DEX'},rank:0,bonus:0,actual:0,modifier:0,effects:[]},
-    charisma : { label:{fr:'CHA'},rank:0,bonus:0,actual:0,modifier:0,effects:[]}
+    strength : { label:{fr:'FOR'},rank:10,bonus:0,actual:10,modifier:0,effects:[]},
+    constitution : { label:{fr:'CON'},rank:10,bonus:0,actual:10,modifier:0,effects:[]},
+    wisdom : { label:{fr:'SAG'},rank:10,bonus:0,actual:10,modifier:0,effects:[]},
+    intelligence : { label:{fr:'INT'},rank:10,bonus:0,actual:10,modifier:0,effects:[]},
+    dexterity : { label:{fr:'DEX'},rank:10,bonus:0,actual:10,modifier:0,effects:[]},
+    charisma : { label:{fr:'CHA'},rank:10,bonus:0,actual:10,modifier:0,effects:[]}
   },
   saving_throws : {
       fortitude: { base : 0 },

@@ -15,6 +15,7 @@ export function changeAbilityRank(ability_name, new_rank) {
 }
 
 export function changeSkillRank(skill_id, new_rank) {
+  console.log(skill_id);
   return {
     type: types.CHANGE_SKILL_RANK,
     id : skill_id,

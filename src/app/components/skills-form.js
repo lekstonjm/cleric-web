@@ -21,7 +21,7 @@ export default class SkillsForm extends Component {
       }
     };
     return Object.keys(skills.sort(sort_fn)).map( (skill_id) => {
-      return (<SkillForm skill={skills[skill_id]} onRankChange={(new_rank)=>onRankChange(skill_id, new_rank)}/>);
+      return (<SkillForm key={skills[skill_id].id} skill={skills[skill_id]} onRankChange={(new_rank)=>onRankChange(skills[skill_id].id, new_rank)}/>);
     });
   }
 

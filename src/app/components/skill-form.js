@@ -11,7 +11,7 @@ export default class SkillForm extends Component {
     const { skill, onRankChange } = this.props;
     return (
       <tr>
-        <td className=".label">{skill.label[language]}</td>
+        <td>{skill.label[language]}</td>
         <td><input
               type="number"
               value={skill.rank}
