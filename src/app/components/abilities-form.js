@@ -26,7 +26,7 @@ export default class AbilitiesForm extends Component {
         <h2>Abilities</h2>
         <Table condensed>
               <thead>
-                <tr><td></td><td>Rk</td><td>Act</td><td>Mod</td></tr>
+                <tr><td></td><td>Rank</td><td>Actual</td><td>Modifier</td></tr>
               </thead>
               <tbody>
               { this.renderAbilities(abilities, onAbilityRankChange, onShowAbilityEffects) }

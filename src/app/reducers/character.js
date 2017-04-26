@@ -15,6 +15,13 @@ function updateAbility(character, ability_name) {
     var skill = selected_skills[skill_index];
     skill.actual = skill.rank + ability.modifier;
   }
+  updateHitPoints(character);
+}
+
+function updateHitPoints(character) {
+  character.hit_points.actual = parseInt(character.hit_points.rank,10)
+    + parseInt(character.abilities.constitution.modifier,10) * parseInt(character.level,10)
+    - parseInt(character.hit_points.damage,10);
 }
 
 export default function character(state = null, action = {}) {
@@ -41,7 +48,7 @@ export default function character(state = null, action = {}) {
       var effects = new_state.abilities[action.ability].effects;
       if (effects !== undefined) {
         for (var effect in effects) { if (effects[effect].id > max_id) { max_id = effects[effect].id; } }
-        effects.push({id:max_id+1, description:action.description, value:action.value});
+        effects.push({id:max_id+1, description:action.description, value: parseInt(action.value,10) });
       }
       updateAbility(new_state, action.ability);
       return new_state
@@ -49,6 +56,18 @@ export default function character(state = null, action = {}) {
       var effects = new_state.abilities[action.ability].effects;
       effects.splice(effects.findIndex((item)=>{item.id = action.effect}),1);
       updateAbility(new_state, action.ability);
+      return new_state;
+    case types.CHANGE_HIT_POINTS_RANK:
+      new_state.hit_points.rank = parseInt(action.rank,10);
+      updateHitPoints(new_state);
+      return new_state;
+    case types.CHANGE_HIT_POINTS_DAMAGE:
+      new_state.hit_points.damage = parseInt(action.damage,10);
+      updateHitPoints(new_state);
+      return new_state;
+    case types.CHANGE_LEVEL:
+      new_state.level = parseInt(action.level,10);
+      updateHitPoints(new_state);
       return new_state;
     case types.RESET_CHARACTER:
     default:

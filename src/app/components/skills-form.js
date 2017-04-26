@@ -33,7 +33,7 @@ export default class SkillsForm extends Component {
         <Button onClick={onNewSkill}>+</Button>
         <Table condensed>
             <thead>
-              <tr><td>&nbsp;</td><td>Rk</td><td>Act</td></tr>
+              <tr><td>&nbsp;</td><td>Rank</td><td>Actual</td></tr>
             </thead>
             <tbody>
             { this.renderSkills(skills, onRankChange) }

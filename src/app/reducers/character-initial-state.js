@@ -1,4 +1,5 @@
 export const initialState = {
+  level : 0,
   abilities : {
     strength : { label:{fr:'FOR'},rank:10,bonus:0,actual:10,modifier:0,effects:[]},
     constitution : { label:{fr:'CON'},rank:10,bonus:0,actual:10,modifier:0,effects:[]},
@@ -14,6 +15,7 @@ export const initialState = {
   },
   hit_points : {
     rank:0,
+    damage:0,
     actual:0
   },
   armor_class : {

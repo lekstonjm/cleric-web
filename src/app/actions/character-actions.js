@@ -47,3 +47,24 @@ export function removeEffect(ability, effect) {
     effect: effect
   }
 }
+
+export function changeHitPointsRank(rank) {
+  return {
+    type: types.CHANGE_HIT_POINTS_RANK,
+    rank : rank
+  }
+}
+
+export function changeHitPointsDamage(damage) {
+  return {
+    type: types.CHANGE_HIT_POINTS_DAMAGE,
+    damage : damage
+  }
+}
+
+export function changeLevel(level) {
+  return {
+    type: types.CHANGE_LEVEL,
+    level: level
+  }
+}
