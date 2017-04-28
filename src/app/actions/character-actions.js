@@ -31,20 +31,20 @@ export function newSkill(label, ability) {
   }
 }
 
-export function addEffect(ability, description, value) {
+export function addEffect(property_path, description, value) {
   return {
     type: types.ADD_EFFECT,
-    ability: ability,
+    property_path: property_path,
     description: description,
     value: value
   }
 }
 
-export function removeEffect(ability, effect) {
+export function removeEffect(property_path, effect_id) {
   return {
     type: types.REMOVE_EFFECT,
-    ability: ability,
-    effect: effect
+    property_path: property_path,
+    id: effect_id
   }
 }
 
@@ -66,5 +66,13 @@ export function changeLevel(level) {
   return {
     type: types.CHANGE_LEVEL,
     level: level
+  }
+}
+
+export function changeSavingThrowRank(saving_name, rank) {
+  return {
+    type: types.CHANGE_SAVING_THROW_RANK,
+    name : saving_name,
+    rank : rank
   }
 }

@@ -28,18 +28,14 @@ export default class SkillsForm extends Component {
   render() {
     const { skills, onRankChange, onNewSkill } = this.props;
     return (
-      <div className="skills">
-        <h2>Skills</h2>
-        <Button onClick={onNewSkill}>+</Button>
-        <Table condensed>
-            <thead>
-              <tr><td>&nbsp;</td><td>Rank</td><td>Actual</td></tr>
-            </thead>
-            <tbody>
-            { this.renderSkills(skills, onRankChange) }
-            </tbody>
-        </Table>
-      </div>
+      <Table condensed>
+          <thead>
+            <tr><td>Skills <Button bsSize="xsmall" onClick={onNewSkill}>New</Button></td><td>Rank</td><td>Actual</td></tr>
+          </thead>
+          <tbody>
+          { this.renderSkills(skills, onRankChange) }
+          </tbody>
+      </Table>
    );
   }
 }

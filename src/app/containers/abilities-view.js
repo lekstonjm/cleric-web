@@ -14,7 +14,7 @@ class AbilitiesView extends Component {
     return (
       <AbilitiesForm abilities={character.abilities}
         onAbilityRankChange={ (ability_name, new_rank) => changeAbilityRank(ability_name, new_rank) }
-        onShowAbilityEffects={ (ability_name) => showEffectsForm(ability_name) } />
+        onShowAbilityEffects={ (ability_name) => showEffectsForm(['abilities',ability_name]) } />
     );
   }
 }
@@ -24,6 +24,6 @@ export default connect(state => ({
   }),
   (dispatch) => ({
     changeAbilityRank : (ability_name, new_rank) => dispatch(actions.character.changeAbilityRank(ability_name, new_rank)),
-    showEffectsForm : (ability_name) => dispatch(actions.hmi.showEffectsForm(ability_name))
+    showEffectsForm : (property_path) => dispatch(actions.hmi.showEffectsForm(property_path))
   })
 )(AbilitiesView);

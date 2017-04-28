@@ -1,5 +1,5 @@
 export const initialState = {
-  level : 0,
+  level : { label:{fr:'Niveau'}, actual:0 },
   abilities : {
     strength : { label:{fr:'FOR'},rank:10,bonus:0,actual:10,modifier:0,effects:[]},
     constitution : { label:{fr:'CON'},rank:10,bonus:0,actual:10,modifier:0,effects:[]},
@@ -9,25 +9,14 @@ export const initialState = {
     charisma : { label:{fr:'CHA'},rank:10,bonus:0,actual:10,modifier:0,effects:[]}
   },
   saving_throws : {
-      fortitude: { base : 0 },
-      reflex: { base : 0 },
-      will: { base : 0 }
+      fortitude: { label:{fr:'Fortitude'}, rank : 0, actual : 0, effects:[], ability:"constitution" },
+      reflex: { label:{fr:'Reflexe'}, rank : 0, actual : 0, effects:[], ability:"dexterity" },
+      will: { label:{fr:'Volonté'}, rank : 0, actual : 0, effects:[], ability:"charisma" },
   },
-  hit_points : {
-    rank:0,
-    damage:0,
-    actual:0
-  },
-  armor_class : {
-    actual : 0,
-    touch : 0,
-    flat_footed : 0
-  },
-  initiative : 0,
-  attack: {
-    base : 0,
-    actual : 0
-  },
+  hit_points : { label:{fr:'PV'}, rank:0, damage:0, actual:0, effects:[] },
+  armor_class : { label:{fr:'CA'}, actual:10, effects:[] },
+  initiative : { label:{fr:'Initiative'}, actual: 0, effects:[] },
+  attack: { label:{fr:'Attack'}, base : 0, actual : 0, effects:[] },
   skills: [
   {id:1, label: {en:"Appraise", fr:"Estimation"}, rank : 0, actual: 0, ability:"intelligence" },
   {id:2, label: {en:"Balance", fr:"Acrobatie"}, rank : 0, actual: 0, ability:"dexterity" },

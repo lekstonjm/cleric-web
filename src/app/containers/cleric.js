@@ -11,6 +11,9 @@ import EffectsView from '../containers/effects-view'
 import AbilitiesView from '../containers/abilities-view'
 import SkillsView from '../containers/skills-view'
 import HitPointsView from '../containers/hit-points-view'
+import SavingThrowsView from '../containers/saving-throws-view'
+import ArmorClassView from '../containers/armor-class-view'
+import InitiativeView from '../containers/initiative-view'
 // @connect(state => ({
 //   state: state.counter
 // }))
@@ -22,15 +25,18 @@ class Cleric extends Component {
   render() {
     return (
       <div>
-        <PageHeader>Calculatrice à PJ <LevelView/></PageHeader>
+        <PageHeader>Calculatrice à PJ</PageHeader>
         <Grid>
           <Row>
             <Col lg={4}>
+              <LevelView/>
               <AbilitiesView/>
               <HitPointsView/>
+              <SavingThrowsView/>
             </Col>
             <Col lg={4}>
-              &nbsp;
+              <ArmorClassView/>
+              <InitiativeView/>
             </Col>
             <Col lg={4}>
               <SkillsView/>

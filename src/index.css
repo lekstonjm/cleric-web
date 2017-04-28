@@ -3,6 +3,7 @@
   font-size: 11pt;
   margin: 0;
   padding: 0;
+  color:#999999;
 }
 
 body {
@@ -10,13 +11,14 @@ body {
   padding: 0;
   font-family: sans-serif;
   font-size: 11pt;
+  background-color : #2e2e2e;
 }
 
 input[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
   margin: 0;
-  background-color: white;
+  background-color: #2e2e2e;
   border-style: none;
   text-align: center;
   width: 4em;

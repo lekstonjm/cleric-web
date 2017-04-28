@@ -12,7 +12,7 @@ class NewSkillView extends Component {
   render() {
     const { hmi, newSkill, hideNewSkillForm } = this.props;
     return (
-      <NewSkillForm visible={hmi.new_skill_form_visible} onOk={(label, ability)=>{newSkill(label, ability); hideNewSkillForm();}} onCancel={hideNewSkillForm}/>
+      <NewSkillForm visible={hmi.new_skill_form.visible} onOk={(label, ability)=>{newSkill(label, ability); hideNewSkillForm();}} onCancel={hideNewSkillForm}/>
     );
   }
 }

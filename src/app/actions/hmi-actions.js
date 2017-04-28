@@ -12,10 +12,10 @@ export function hideNewSkillForm() {
   }
 }
 
-export function showEffectsForm(ability) {
+export function showEffectsForm(property_path) {
   return {
     type : types.SHOW_EFFECTS_FORM,
-    ability : ability
+    property_path : property_path
   }
 }
 

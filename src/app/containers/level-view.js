@@ -1,30 +1,25 @@
 import React, {Component} from 'react';
-import {Table} from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 
+import LevelForm from '../components/level-form';
+
 class LevelView extends Component {
   constructor(props) {
     super(props);
-    this.refLevel = null;
   }
 
   render() {
     const { character, onLevelChange } = this.props;
     return (
-        <input
-          type="number"
-          value={character.level}
-          ref={ (input) => { this.refLevel = input; } }
-          onClick={ () => { this.refLevel.select();} }
-          onChange={ () => { onLevelChange(this.refLevel.value); } }/>
-    )
+      <LevelForm level={character.level} onChange={onLevelChange}/>
+    );
   }
 }
 
 export default connect(
-  (state) => ({
+  state => ({
     character : state.character
   }),
   (dispatch) => ({
