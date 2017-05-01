@@ -76,3 +76,10 @@ export function changeSavingThrowRank(saving_name, rank) {
     rank : rank
   }
 }
+
+export function changeSize(new_size) {
+  return {
+    type: types.CHANGE_SIZE,
+    size : new_size
+  }
+}

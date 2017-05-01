@@ -3,9 +3,6 @@ import {Table} from 'react-bootstrap';
 import AbilityForm from './ability-form';
 
 export default class AbilitiesForm extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   renderAbilities(abilities, onAbilityRankChange, onShowAbilityEffects) {
     return Object.keys(abilities).map( (ability_name) => {

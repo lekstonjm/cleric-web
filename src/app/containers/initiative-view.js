@@ -6,9 +6,6 @@ import * as actions from '../actions';
 import InitiativeForm from '../components/initiative-form';
 
 class InitiativeView extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { character, onShowEffects } = this.props;

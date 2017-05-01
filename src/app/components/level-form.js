@@ -3,9 +3,6 @@ import {Table} from 'react-bootstrap';
 
 import {language} from '../i18n/language';
 
-
-import * as actions from '../actions';
-
 export default class LevelForm extends Component {
 
   constructor(props) {

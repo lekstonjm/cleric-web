@@ -3,12 +3,7 @@ import {Table, Button} from 'react-bootstrap';
 
 import {language} from '../i18n/language';
 
-import * as actions from '../actions';
-
 export default class ArmorClassForm extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { armorClass,  onShowEffects } = this.props;

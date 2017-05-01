@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Modal, Button, Form, FormGroup, FormControl, Table} from 'react-bootstrap';
+import {Modal, Button, FormControl, Table} from 'react-bootstrap';
 
 export default class EffectsForm extends Component {
   constructor(props) {
@@ -9,8 +9,8 @@ export default class EffectsForm extends Component {
   }
 
   renderEffects(effects, onRemove) {
-      return Object.keys(effects).map( (effect) => {
-        var effect = effects[effect];
+      return Object.keys(effects).map( (effect_key) => {
+        var effect = effects[effect_key];
         return (
           <tr key={effect.id}>
             <td>{effect.description}</td>
@@ -37,11 +37,7 @@ export default class EffectsForm extends Component {
               <tr>
                 <td><FormControl inputRef={ (input) => { this.description_input = input} } type="text" placeholder="Effect description" /></td>
                 <td><FormControl inputRef={ (input) => { this.value_input = input} } type="numeric" placeholder="+/- effect" /></td>
-                <td>
-                  <Button onClick={ () => { onAdd(this.description_input.value, this.value_input.value); } }>
-                    +
-                  </Button>
-                </td>
+                <td><Button onClick={ () => { onAdd(this.description_input.value, this.value_input.value); } }>+</Button></td>
               </tr>
             </tbody>
           </Table>

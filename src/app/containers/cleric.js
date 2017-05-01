@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {Grid, Row, Col, Jumbotron, PageHeader, Button} from 'react-bootstrap';
-
-import {language} from '../i18n/language';
-import * as actions from '../actions';
+import {Grid, Row, Col, PageHeader} from 'react-bootstrap';
 
 import LevelView from '../containers/level-view'
 import NewSkillView from '../containers/new-skill-view'
@@ -14,13 +11,11 @@ import HitPointsView from '../containers/hit-points-view'
 import SavingThrowsView from '../containers/saving-throws-view'
 import ArmorClassView from '../containers/armor-class-view'
 import InitiativeView from '../containers/initiative-view'
+import SizeView from '../containers/size-view'
 // @connect(state => ({
 //   state: state.counter
 // }))
 class Cleric extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
@@ -30,6 +25,7 @@ class Cleric extends Component {
           <Row>
             <Col lg={4}>
               <LevelView/>
+              <SizeView/>
               <AbilitiesView/>
               <HitPointsView/>
               <SavingThrowsView/>

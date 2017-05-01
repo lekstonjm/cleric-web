@@ -5,9 +5,6 @@ import EffectsForm from '../components/effects-form';
 import * as actions from '../actions';
 
 class EffectsView extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { hmi, character, addEffect, removeEffect, hideEffectsForm } = this.props;
@@ -20,7 +17,7 @@ class EffectsView extends Component {
         visible={hmi.effects_form.visible}
         onHide={hideEffectsForm}
         onAdd={ (description, value) => { addEffect(hmi.effects_form.property_path, description, value); }}
-        onRemove = { (effect_id) => { removeEffect(hmi.effects_form.property_path, effect_id); }} />
+        onRemove={ (effect_id) => { removeEffect(hmi.effects_form.property_path, effect_id); }} />
     );
   }
 }

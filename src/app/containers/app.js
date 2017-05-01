@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { compose, createStore, combineReducers } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux';
 import { persistStore, autoRehydrate } from 'redux-persist'
 import localForage from 'localforage';
@@ -15,9 +15,9 @@ const store = createStore(
   undefined,
   autoRehydrate()
 )
-
-const persist_store = persistStore(store, {storage: localForage});
-persist_store.purge();
+persistStore(store, {storage: localForage});
+//const persist_store = persistStore(store, {storage: localForage});
+//persist_store.purge();
 
 export default class App extends Component {
   render() {

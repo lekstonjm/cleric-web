@@ -5,9 +5,6 @@ import SkillsForm from '../components/skills-form';
 import * as actions from '../actions';
 
 class SkillsView extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { character, onRankChange, onNewSkill } = this.props;

@@ -6,9 +6,6 @@ import SavingThrowsForm from '../components/saving-throws-form'
 import * as actions from '../actions';
 
 class SavingThrowsView extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { character

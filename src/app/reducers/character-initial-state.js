@@ -1,5 +1,13 @@
 export const initialState = {
   level : { label:{fr:'Niveau'}, actual:0 },
+  size : {label:{fr:'Taille'}, rank:0, actual:0, effects:[]
+    , list:[
+        {value:-2, label:{fr:'trés petit'}},
+        {value:-1, label:{fr:'petit'}},
+        {value:0, label:{fr:'moyen'}},
+        {value:1, label:{fr:'grand'}},
+        {value:2, label:{fr:'trés grand'}}
+    ]},
   abilities : {
     strength : { label:{fr:'FOR'},rank:10,bonus:0,actual:10,modifier:0,effects:[]},
     constitution : { label:{fr:'CON'},rank:10,bonus:0,actual:10,modifier:0,effects:[]},
@@ -14,9 +22,10 @@ export const initialState = {
       will: { label:{fr:'Volonté'}, rank : 0, actual : 0, effects:[], ability:"charisma" },
   },
   hit_points : { label:{fr:'PV'}, rank:0, damage:0, actual:0, effects:[] },
-  armor_class : { label:{fr:'CA'}, actual:10, effects:[] },
+  armor_class : { label:{fr:'CA'}, actual:10, armors:[], effects:[] },
   initiative : { label:{fr:'Initiative'}, actual: 0, effects:[] },
   attack: { label:{fr:'Attack'}, base : 0, actual : 0, effects:[] },
+  weapons:[],
   skills: [
   {id:1, label: {en:"Appraise", fr:"Estimation"}, rank : 0, actual: 0, ability:"intelligence" },
   {id:2, label: {en:"Balance", fr:"Acrobatie"}, rank : 0, actual: 0, ability:"dexterity" },

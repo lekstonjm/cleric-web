@@ -6,9 +6,6 @@ import * as actions from '../actions';
 import LevelForm from '../components/level-form';
 
 class LevelView extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { character, onLevelChange } = this.props;

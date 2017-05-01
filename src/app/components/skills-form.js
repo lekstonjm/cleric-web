@@ -6,9 +6,6 @@ import {language} from '../i18n/language';
 
 
 export default class SkillsForm extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   renderSkills(skills, onRankChange) {
     var sort_fn = (item1, item2) => {

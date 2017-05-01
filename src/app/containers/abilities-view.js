@@ -5,9 +5,6 @@ import AbilitiesForm from '../components/abilities-form';
 import * as actions from '../actions';
 
 class AbilitiesView extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { character, changeAbilityRank, showEffectsForm } = this.props;

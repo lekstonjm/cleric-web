@@ -5,9 +5,6 @@ import ArmorClassForm from '../components/armor-class-form'
 import * as actions from '../actions';
 
 class ArmorClassView extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { character, onShowEffects } = this.props;

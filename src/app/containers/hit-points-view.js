@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {Table} from 'react-bootstrap';
 import HitPointsForm from '../components/hit-points-form'
 
 import * as actions from '../actions';

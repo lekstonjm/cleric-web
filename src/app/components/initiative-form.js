@@ -3,12 +3,7 @@ import {Table, Button} from 'react-bootstrap';
 
 import {language} from '../i18n/language';
 
-import * as actions from '../actions';
-
 export default class InitiativeForm extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { initiative,  onShowEffects } = this.props;
