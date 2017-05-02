@@ -24,7 +24,7 @@ export const initialState = {
   hit_points : { label:{fr:'PV'}, rank:0, damage:0, actual:0, effects:[] },
   armor_class : { label:{fr:'CA'}, actual:10, armors:[], effects:[] },
   initiative : { label:{fr:'Initiative'}, actual: 0, effects:[] },
-  attack: { label:{fr:'Attack'}, base : 0, actual : 0, effects:[] },
+  attack: { label:{fr:'Attack'}, base : 0, effects : [],  contact : { actual : 0, effects:[] }, distant : { actual : 0, effects:[] } },
   weapons:[],
   skills: [
   {id:1, label: {en:"Appraise", fr:"Estimation"}, rank : 0, actual: 0, ability:"intelligence" },
