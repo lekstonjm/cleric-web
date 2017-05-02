@@ -15,9 +15,9 @@ const store = createStore(
   undefined,
   autoRehydrate()
 )
-persistStore(store, {storage: localForage});
-//const persist_store = persistStore(store, {storage: localForage});
-//persist_store.purge();
+//persistStore(store, {storage: localForage});
+const persist_store = persistStore(store, {storage: localForage});
+persist_store.purge();
 
 export default class App extends Component {
   render() {

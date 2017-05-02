@@ -4,9 +4,9 @@ import {getEffects, update} from '../domain/character-sheet-rules';
 
 
 
-export default function character(state = null, action = {}) {
+export default function character(state = initialState, action = {}) {
   var max_id = 0;
-  var effects = null;
+  var effects = null; 
   var new_state = {...state};
   switch (action.type) {
     case types.RESET_CHARACTER:
