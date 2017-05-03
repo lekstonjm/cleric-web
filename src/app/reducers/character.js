@@ -2,11 +2,9 @@ import * as types from '../actions/character-action-types';
 import {initialState} from './character-initial-state';
 import {getEffects, update} from '../domain/character-sheet-rules';
 
-
-
 export default function character(state = initialState, action = {}) {
   var max_id = 0;
-  var effects = null; 
+  var effects = null;
   var new_state = {...state};
   switch (action.type) {
     case types.RESET_CHARACTER:
@@ -53,6 +51,9 @@ export default function character(state = initialState, action = {}) {
       if (saving_throw !== undefined) {
         saving_throw.rank = parseInt(action.rank,10);
       }
+      break;
+    case types.CHANGE_BASE_ATTACK_RANK:
+      new_state.attack.base.rank = parseInt(action.rank,10);
       break;
     case types.CHANGE_SIZE:
       new_state.size.actual = parseInt(action.size,10);

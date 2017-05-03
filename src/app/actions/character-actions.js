@@ -83,3 +83,10 @@ export function changeSize(new_size) {
     size : new_size
   }
 }
+
+export function changeBaseAttackRank(new_rank) {
+  return {
+    type: types.CHANGE_BASE_ATTACK_RANK,
+    rank: new_rank
+  }
+}

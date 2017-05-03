@@ -37,8 +37,8 @@ export default connect(
   }),
   (dispatch) => ({
     onFortitudeRankChange : (rank) => dispatch(actions.character.changeSavingThrowRank('fortitude', rank)) ,
-    onReflexRankChange : (rank) => dispatch(actions.character.changeReflexRank('reflex', rank)) ,
-    onWillRankChange : (rank) => dispatch(actions.character.changeWillRank('will', rank)) ,
+    onReflexRankChange : (rank) => dispatch(actions.character.changeSavingThrowRank('reflex', rank)) ,
+    onWillRankChange : (rank) => dispatch(actions.character.changeSavingThrowRank('will', rank)) ,
     onShowFortitudeEffects : () => dispatch(actions.hmi.showEffectsForm(['saving_throws','fortitude'])),
     onShowReflexEffects : () => dispatch(actions.hmi.showEffectsForm(['saving_throws','reflex'])),
     onShowWillEffects : () => dispatch(actions.hmi.showEffectsForm(['saving_throws','will']))

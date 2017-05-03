@@ -12,6 +12,7 @@ import SavingThrowsView from '../containers/saving-throws-view'
 import ArmorClassView from '../containers/armor-class-view'
 import InitiativeView from '../containers/initiative-view'
 import SizeView from '../containers/size-view'
+import AttackView from '../containers/attack-view'
 // @connect(state => ({
 //   state: state.counter
 // }))
@@ -29,6 +30,7 @@ class Cleric extends Component {
               <AbilitiesView/>
               <HitPointsView/>
               <SavingThrowsView/>
+              <AttackView/>
             </Col>
             <Col lg={4}>
               <ArmorClassView/>
