@@ -58,6 +58,26 @@ export default function character(state = initialState, action = {}) {
     case types.CHANGE_SIZE:
       new_state.size.actual = parseInt(action.size,10);
       break;
+    case types.REMOVE_WEAPON:
+      index = new_state.attack.weapons.findIndex((item)=>{return item.id === action.id; });
+      new_state.attack.weapons.splice(index);
+      break;
+    case types.NEW_WEAPON:
+      max_id = 0;
+      for (index in new_state.attack.weapons) {
+        var id = new_state.attack.weapons[index].id;
+        if( id > max_id) { max_id = id; }
+      }
+      var weapon = {
+            id: max_id+1
+          , name: action.name
+          , type: action.weapon_type
+          , touch : { base:0, actual:0}
+          , damage : { base:action.damage, actual:0 }
+          , effects:[]
+      };
+      new_state.attack.weapons.push(weapon);
+      break;
     default:
       break;
   }

@@ -8,13 +8,13 @@ import AttackForm from '../components/attack-form';
 class AttackView extends Component {
 
   render() {
-    const { character, onRankChange, onShowBaseEffects, onShowContactEffects, onShowDistantEffects } = this.props;
+    const { character, onChangeBaseAttackRank, onShowEffectsForm } = this.props;
     return (
       <AttackForm attack={character.attack}
-        onRankChange={onRankChange}
-        onShowBaseEffects={onShowBaseEffects}
-        onShowContactEffects={onShowContactEffects}
-        onShowDistantEffects={onShowDistantEffects}/>
+        onRankChange={onChangeBaseAttackRank}
+        onShowBaseEffects={() => onShowEffectsForm(['attack','base'])}
+        onShowContactEffects={() => onShowEffectsForm(['attack','contact'])}
+        onShowDistantEffects={() => onShowEffectsForm(['attack','distant'])}/>
     );
   }
 }
@@ -24,9 +24,7 @@ export default connect(
       character:state.character
     })
   , (dispatch) => ({
-      onRankChange : (new_rank) => dispatch(actions.character.changeBaseAttackRank(new_rank))
-    , onShowBaseEffects : () => dispatch(actions.hmi.onShowEffects(['attack']))
-    , onShowDistantEffects : () => dispatch(actions.hmi.onShowEffects(['attack', 'base']))
-    , onShowContactEffects : () => dispatch(actions.hmi.onShowEffects(['attack', 'contact']))
+      onChangeBaseAttackRank : (new_rank) => dispatch(actions.character.changeBaseAttackRank(new_rank))
+    , onShowEffectsForm : (property_path) => dispatch(actions.hmi.showEffectsForm(property_path))
   })
 )(AttackView);

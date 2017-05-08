@@ -8,7 +8,17 @@ export default class AttackForm extends Component {
     super(props);
     this.refInput = null;
   }
-
+  renderActual(actual_base, actual_typed) {
+    var number = actual_base / 5;
+    var result = "";
+    for (var index = 0; index < number; index++) {
+      if (index > 0) {
+        result += " / ";
+      }
+      result += actual_typed - index * 5;
+    }
+    return result;
+  }
   render() {
     const { attack, onRankChange, onShowBaseEffects, onShowContactEffects, onShowDistantEffects } = this.props;
     var button_base_label = "+";
@@ -38,13 +48,13 @@ export default class AttackForm extends Component {
           <tr>
             <td>{attack.contact.label[language]}</td>
             <td></td>
-            <td>{attack.contact.actual}</td>
+            <td>{this.renderActual(attack.base.actual, attack.contact.actual)}</td>
             <td><Button bsSize="xsmall" onClick={onShowContactEffects}>{button_contact_label}</Button></td>
           </tr>
           <tr>
             <td>{attack.distant.label[language]}</td>
             <td></td>
-            <td>{attack.distant.actual}</td>
+            <td>{this.renderActual(attack.base.actual, attack.distant.actual)}</td>
             <td><Button bsSize="xsmall" onClick={onShowDistantEffects}>{button_distant_label}</Button></td>
           </tr>
         </tbody>

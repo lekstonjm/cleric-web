@@ -27,7 +27,7 @@ export default class SkillsForm extends Component {
     return (
       <Table condensed>
           <thead>
-            <tr><td>Skills <Button bsSize="xsmall" onClick={onNewSkill}>New</Button></td><td>Rank</td><td>Actual</td></tr>
+            <tr><td>Skills <Button bsSize="xsmall" onClick={onNewSkill}>+</Button></td><td>Rank</td><td>Actual</td></tr>
           </thead>
           <tbody>
           { this.renderSkills(skills, onRankChange) }

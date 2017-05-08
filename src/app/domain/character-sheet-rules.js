@@ -74,6 +74,43 @@ function updateArmorClass(character) {
   character.armor_class.actual = 10 + character.abilities.dexterity.modifier + bonus;
 }
 
+function updateAttack(character) {
+  var bonus = 0;
+  var effect_index = null;
+  for (effect_index in character.attack.base.effects){
+    bonus += parseInt(character.attack.base.effects[effect_index].value,10);
+  }
+  character.attack.base.actual = character.attack.base.rank + bonus;
+  bonus = 0;
+  for (effect_index in character.attack.contact.effects){
+    bonus += parseInt(character.attack.contact.effects[effect_index].value,10);
+  }
+  character.attack.contact.actual = character.attack.base.actual + character.abilities.strength.modifier + bonus;
+  bonus = 0;
+  for (effect_index in character.attack.distant.effects){
+    bonus += parseInt(character.attack.distant.effects[effect_index].value,10);
+  }
+  character.attack.distant.actual = character.attack.base.actual + character.abilities.dexterity.modifier + bonus;
+
+  for (var weapon_index in character.attack.weapons) {
+    var weapon = character.attack.weapons[weapon_index];
+    bonus = 0;
+    for (effect_index in weapon.effects){
+      bonus += parseInt(weapon.effects[effect_index].value,10);
+    }
+    weapon.touch.base = character.attack.base.actual;
+    weapon.touch.actual = character.attack[weapon.type].actual + bonus;
+    var ability_name = "strength";
+    if (weapon.type === "distant") {
+      ability_name = "dexterity";
+    }
+    bonus = character.abilities[ability_name].modifier + bonus;
+    weapon.damage.actual = weapon.damage.base;
+    if (bonus > 0)  {
+      weapon.damage.actual = weapon.damage.actual + " + " + bonus;
+    }
+  }
+}
 
 export function update(character) {
   updateAbilities(character);
@@ -82,4 +119,5 @@ export function update(character) {
   updateSavingThrows(character);
   updateInitiative(character);
   updateArmorClass(character);
+  updateAttack(character);
 }

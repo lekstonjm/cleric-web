@@ -9,7 +9,7 @@ export default class AbilitiesForm extends Component {
       return (
         <AbilityForm key={ability_name}
           ability={abilities[ability_name]}
-          onRankChange={ (new_rank) => { console.log('test'); onAbilityRankChange(ability_name, new_rank);} }
+          onRankChange={ (new_rank) => { onAbilityRankChange(ability_name, new_rank);} }
           onShowEffects={ () => onShowAbilityEffects(ability_name) }
           />
       );

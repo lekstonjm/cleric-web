@@ -15,11 +15,18 @@ export function changeAbilityRank(ability_name, new_rank) {
 }
 
 export function changeSkillRank(skill_id, new_rank) {
-  console.log(skill_id);
   return {
     type: types.CHANGE_SKILL_RANK,
     id : skill_id,
     rank: new_rank
+  }
+}
+
+
+export function removeSkill(skill_id) {
+  return {
+    type: types.REMOVE_SKILL,
+    id : skill_id
   }
 }
 
@@ -88,5 +95,21 @@ export function changeBaseAttackRank(new_rank) {
   return {
     type: types.CHANGE_BASE_ATTACK_RANK,
     rank: new_rank
+  }
+}
+
+export function removeWeapon(weapon_index) {
+  return {
+      type : types.REMOVE_WEAPON
+    , id : weapon_index
+  }
+}
+
+export function newWeapon(name, type, damage) {
+  return {
+      type : types.NEW_WEAPON
+    , name : name
+    , weapon_type : type
+    , damage : damage
   }
 }
