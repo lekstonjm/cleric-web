@@ -98,6 +98,9 @@ function updateAttack(character) {
     for (effect_index in weapon.effects){
       bonus += parseInt(weapon.effects[effect_index].value,10);
     }
+    if (weapon.two_handed) {
+      bonus = 1.5 * bonus;
+    }
     weapon.touch.base = character.attack.base.actual;
     weapon.touch.actual = character.attack[weapon.type].actual + bonus;
     var ability_name = "strength";
@@ -110,6 +113,10 @@ function updateAttack(character) {
       weapon.damage.actual = weapon.damage.actual + " + " + bonus;
     }
   }
+}
+
+function updateArmor(character) {
+  
 }
 
 export function update(character) {

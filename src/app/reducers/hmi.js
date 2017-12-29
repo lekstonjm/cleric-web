@@ -4,6 +4,7 @@ const initialState = {
     new_skill_form : { visible : false }
   , effects_form : { visible : false, property_path : [] }
   , new_weapon_form : { visible : false}
+  , new_armor_form : { visible : false }
 };
 
 export default function hmi(state = initialState, action = {}) {
@@ -27,6 +28,12 @@ export default function hmi(state = initialState, action = {}) {
       break;
     case types.HIDE_NEW_WEAPON_FORM:
       new_state.new_weapon_form.visible = false;
+      break;
+    case types.SHOW_NEW_ARMOR_FORM:
+      new_state.new_armor_form.visible = true;
+      break;
+    case types.HIDE_NEW_ARMOR_FORM:
+      new_state.new_armor_form.visible = false;
       break;
     default:
       break;

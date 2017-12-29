@@ -72,11 +72,34 @@ export default function character(state = initialState, action = {}) {
             id: max_id+1
           , name: action.name
           , type: action.weapon_type
+          , two_handed : action.two_handed
           , touch : { base:0, actual:0}
           , damage : { base:action.damage, actual:0 }
           , effects:[]
       };
       new_state.attack.weapons.push(weapon);
+      break;
+    case types.REMOVE_ARMOR:
+      index = new_state.armors.findIndex((item)=>{return item.id === action.id; });
+      new_state.armors.splice(index);
+      break;
+    case types.NEW_ARMOR:
+      max_id = 0;
+      for (index in new_state.armors) {
+        var id = new_state.armors[index].id;
+        if( id > max_id) { max_id = id; }
+      }
+      var armor = {
+            id: max_id+1
+          , name: action.name
+          , armor_bonus: action.armor_bonus
+          , shield_bonus : action.shield_bonus
+          , shield_present : false
+          , CA : 0
+          , Suprised : 0
+          , effects:[]
+      };
+      new_state.armors.push(armor);
       break;
     default:
       break;

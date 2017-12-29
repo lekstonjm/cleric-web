@@ -13,3 +13,5 @@ export const CHANGE_SIZE = 'CHANGE_SIZE';
 export const CHANGE_BASE_ATTACK_RANK = 'CHANGE_BASE_ATTACK_RANK';
 export const REMOVE_WEAPON = 'REMOVE_WEAPON';
 export const NEW_WEAPON = 'NEW_WEAPON';
+export const REMOVE_ARMOR = 'REMOVE_ARMOR';
+export const NEW_ARMOR = 'NEW_ARMOR';

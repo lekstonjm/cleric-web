@@ -11,13 +11,13 @@ const reducer = combineReducers(reducers);
 //const store = createStore(reducer);
 
 const store = createStore(
-  reducer,
-  undefined,
-  autoRehydrate()
+  reducer
+  , undefined
+  //, autoRehydrate()
 )
 //persistStore(store, {storage: localForage});
-const persist_store = persistStore(store, {storage: localForage});
-persist_store.purge();
+//const persist_store = persistStore(store, {storage: localForage});
+//persist_store.purge();
 
 export default class App extends Component {
   render() {

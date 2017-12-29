@@ -105,11 +105,28 @@ export function removeWeapon(weapon_index) {
   }
 }
 
-export function newWeapon(name, type, damage) {
+export function newWeapon(name, type, two_handed, damage) {
   return {
       type : types.NEW_WEAPON
     , name : name
     , weapon_type : type
+    , two_handed : two_handed
     , damage : damage
+  }
+}
+
+export function removeArmor(armor_index) {
+  return {
+      type : types.REMOVE_ARMOR
+    , id : armor_index
+  }
+}
+
+export function newArmor(name, type, armor_bonus, shield_bonus) {
+  return {
+      type : types.NEW_ARMOR
+    , name : name
+    , armor_bonus : armor_bonus
+    , shield_bonus : shield_bonus
   }
 }

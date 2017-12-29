@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 import {Modal, Button, Form, FormGroup, FormControl, ControlLabel, Col} from 'react-bootstrap';
 
 
-export default class NewWeaponForm extends Component {
+export default class NewArmorForm extends Component {
   constructor(props) {
     super(props);
     this.name_input = null;
-    this.type_input = null;
-    this.damage_input = null;
-    this.two_handed_input = null;
+    this.armor_bonus_input = null;
+    this.shield_bonus_input = null;
   }
 
   render() {
@@ -16,7 +15,7 @@ export default class NewWeaponForm extends Component {
     return (
       <Modal show={visible} onHide={onCancel}>
         <Modal.Header closeButton>
-          <Modal.Title>New Weapon</Modal.Title>
+          <Modal.Title>New Armor</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form horizontal>
@@ -25,34 +24,23 @@ export default class NewWeaponForm extends Component {
                Name
              </Col>
              <Col sm={6}>
-               <FormControl inputRef={ref => { this.name_input = ref; }}  type="text" placeholder="Enter weapon name" />
+               <FormControl inputRef={ref => { this.name_input = ref; }}  type="text" placeholder="Enter armor name" />
              </Col>
            </FormGroup>
            <FormGroup>
              <Col componentClass={ControlLabel} sm={6}>
-               Type
+               Armor bonus
              </Col>
              <Col sm={6}>
-               <select ref={ref => { this.type_input = ref; }}>
-                <option value="contact">Contact</option>
-                <option value="distant">Distant</option>
-              </select>
+              <FormControl inputRef={ref => { this.armor_bonus_input = ref; }}  type="numeric" placeholder="Enter bonus armor" />
              </Col>
            </FormGroup>
            <FormGroup>
              <Col componentClass={ControlLabel} sm={6}>
-               Two-handed
+               Shield bonus
              </Col>
              <Col sm={6}>
-              <input type="checkbox" ref={ref => { this.two_handed_input = ref;}}/>
-             </Col>
-           </FormGroup>
-           <FormGroup>
-             <Col componentClass={ControlLabel} sm={6}>
-               Damage
-             </Col>
-             <Col sm={6}>
-               <FormControl inputRef={ref => { this.damage_input = ref; }} type="text" placeholder="Weapon damage ex:1D6"/>
+              <FormControl inputRef={ref => { this.shield_bonus_input = ref; }}  type="numeric" placeholder="Enter bonus armor" />
              </Col>
            </FormGroup>
          </Form>
@@ -60,9 +48,8 @@ export default class NewWeaponForm extends Component {
         <Modal.Footer>
           <Button onClick={()=>{
             onOk(this.name_input.value
-                , this.type_input.value
-                , this.two_handed_input.value
-                , this.damage_input.value);
+                , this.armor_bonus_input.value
+                , this.shield_bonus_input.value);
           }}>Add</Button>
         </Modal.Footer>
       </Modal>

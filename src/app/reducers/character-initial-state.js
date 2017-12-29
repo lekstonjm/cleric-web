@@ -26,11 +26,9 @@ export const initialState = {
     , reflex: { label:{fr:'Reflexe'}, rank : 0, actual : 0, effects:[], ability:"dexterity" }
     , will: { label:{fr:'Volonté'}, rank : 0, actual : 0, effects:[], ability:"charisma" }
   }
-  , hit_points : { label:{fr:'PV'}, rank:0, damage:0, actual:0, effects:[] }
-  , armor_class : {
-      label: {fr:'CA'}, actual:10, effects:[]
-      , armors:[]
-  }
+  , hit_points : { label:{fr:'PV'}, rank:0, damage:0, actual:0, effects:[], rule:"rank+level.actual*abilities.constitution.modifier+sum(effects)-damage"}
+  , armor_class : { label: {fr:'CA'}, actual:10, touch:10, effects : [] }
+  , armors : []
   , initiative : { label:{fr:'Initiative'}, actual: 0, effects:[] }
   , attack: {
     label:{fr:'Attaque'}

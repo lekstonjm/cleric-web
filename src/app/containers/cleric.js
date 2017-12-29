@@ -9,8 +9,10 @@ import AbilitiesView from '../containers/abilities-view'
 import SkillsView from '../containers/skills-view'
 import HitPointsView from '../containers/hit-points-view'
 import SavingThrowsView from '../containers/saving-throws-view'
-import ArmorClassView from '../containers/armor-class-view'
 import InitiativeView from '../containers/initiative-view'
+import ArmorClassView from '../containers/armor-class-view'
+import ArmorsView from '../containers/armors-view'
+import NewArmorView from '../containers/new-armor-view'
 import SizeView from '../containers/size-view'
 import AttackView from '../containers/attack-view'
 import WeaponsView from '../containers/weapons-view'
@@ -32,10 +34,11 @@ class Cleric extends Component {
               <AbilitiesView/>
               <HitPointsView/>
               <SavingThrowsView/>
+              <InitiativeView/>
             </Col>
             <Col lg={5}>
               <ArmorClassView/>
-              <InitiativeView/>
+              <ArmorsView/>
               <AttackView/>
               <WeaponsView/>
             </Col>
@@ -46,6 +49,7 @@ class Cleric extends Component {
           <NewSkillView/>
           <EffectsView/>
           <NewWeaponView/>
+          <NewArmorView/>
         </Grid>
       </div>
     );

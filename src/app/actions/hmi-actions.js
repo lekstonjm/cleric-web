@@ -36,3 +36,15 @@ export function hideNewWeaponForm() {
     type : types.HIDE_NEW_WEAPON_FORM
   }
 }
+
+export function showNewArmorForm() {
+  return {
+    type : types.SHOW_NEW_ARMOR_FORM
+  }
+}
+
+export function hideNewArmorForm() {
+  return {
+    type : types.HIDE_NEW_ARMOR_FORM
+  }
+}
